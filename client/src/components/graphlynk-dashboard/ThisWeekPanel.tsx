@@ -1,6 +1,11 @@
 import { TrendingUp, TrendingDown } from 'lucide-react';
+import { type Tier } from '@/types/graphlynk';
 
-export function ThisWeekPanel() {
+interface ThisWeekPanelProps {
+  tier?: Tier;
+}
+
+export function ThisWeekPanel(_props: ThisWeekPanelProps = {}) {
   const winners = [
     { term: 'Voice Search Optimization', rank: 3, volume: '12.4K', delta: 15 },
     { term: 'Schema Markup Best Practices', rank: 7, volume: '8.2K', delta: 12 },

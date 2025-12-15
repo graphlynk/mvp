@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { X, FileText, Download, Sparkles, Lock } from 'lucide-react';
-import { Thread, Tier } from './MessagesContent';
+import { Thread } from './MessagesContent';
+import { Tier } from '@/types/graphlynk';
 
 interface BriefGeneratorProps {
   thread: Thread;

@@ -418,8 +418,8 @@ function AddProductModal({ isOpen, onClose, onAdd }: { isOpen: boolean; onClose:
 
   const handleSubmit = () => {
     const newProduct: Product = {
+      ...(formData as Product),
       id: Math.random().toString(36).substr(2, 9),
-      ...formData as Product,
       link: url,
     };
     onAdd(newProduct);

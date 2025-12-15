@@ -24,6 +24,7 @@ import {
   type InsertProfile,
   type UpdateProfile,
   type Link,
+  type InsertLink,
   type Post,
   type InsertPost,
   type UpdatePost,
@@ -69,6 +70,7 @@ export interface IStorage {
   getProfileByUserId(userId: string): Promise<(Profile & { links: Link[] }) | undefined>;
   createProfile(profile: InsertProfile): Promise<Profile>;
   updateProfile(username: string, updates: UpdateProfile): Promise<Profile | undefined>;
+  createLink(link: InsertLink): Promise<Link>;
 
   // Post operations
   getAllPosts(): Promise<Post[]>;
@@ -256,6 +258,11 @@ export class DatabaseStorage implements IStorage {
     }
 
     return profile;
+  }
+
+  async createLink(insertLink: InsertLink): Promise<Link> {
+    const [link] = await db.insert(links).values(insertLink).returning();
+    return link;
   }
 
   // Post operations
