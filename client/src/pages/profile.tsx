@@ -8,7 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage, FormDescription } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
-import { Profile, User, insertProfileSchema, type InsertProfile } from "@shared/schema";
+import { Profile, User, insertProfileSchema, type InsertProfile, type Link as ProfileLink } from "@shared/schema";
 import { apiRequest, queryClient } from "@/lib/queryClient";
 import { Plus, Trash2, GripVertical, Eye, ArrowLeft, Link2, Upload } from "lucide-react";
 import { Link, useLocation } from "wouter";
@@ -30,6 +30,8 @@ const profileFormSchema = insertProfileSchema.extend({
 
 type ProfileFormValues = z.infer<typeof profileFormSchema>;
 
+type ProfileWithLinks = Profile & { links?: ProfileLink[] };
+
 export default function ProfilePage() {
   const [, setLocation] = useLocation();
   const { toast } = useToast();
@@ -38,7 +40,7 @@ export default function ProfilePage() {
     queryKey: ["/api/user/me"],
   });
 
-  const { data: profile, isLoading } = useQuery<Profile>({
+  const { data: profile, isLoading } = useQuery<ProfileWithLinks>({
     queryKey: ["/api/profile"],
   });
 
@@ -179,6 +181,7 @@ export default function ProfilePage() {
                           <Input
                             placeholder="your-username"
                             {...field}
+                            value={field.value ?? ""}
                             onChange={(e) => field.onChange(e.target.value.toLowerCase().replace(/[^a-z0-9_-]/g, ""))}
                             className="rounded-l-none"
                             data-testid="input-username"
@@ -203,6 +206,7 @@ export default function ProfilePage() {
                         <Input
                           placeholder="Your Name or Company"
                           {...field}
+                          value={field.value ?? ""}
                           data-testid="input-title"
                         />
                       </FormControl>
@@ -240,12 +244,13 @@ export default function ProfilePage() {
                       <FormLabel>Profile Photo</FormLabel>
                       <FormControl>
                         <div className="flex gap-2">
-                          <Input
-                            type="url"
-                            placeholder="https://example.com/avatar.jpg or upload below"
-                            {...field}
-                            data-testid="input-avatar"
-                          />
+                            <Input
+                              type="url"
+                              placeholder="https://example.com/avatar.jpg or upload below"
+                              {...field}
+                              value={field.value ?? ""}
+                              data-testid="input-avatar"
+                            />
                           <SimpleFileUpload
                             onUploadComplete={(objectPath) => {
                               form.setValue("avatarUrl", objectPath);
@@ -305,11 +310,12 @@ export default function ProfilePage() {
                             render={({ field }) => (
                               <FormItem>
                                 <FormControl>
-                                  <Input
-                                    placeholder="Label (e.g., Website)"
-                                    {...field}
-                                    data-testid={`input-link-label-${index}`}
-                                  />
+                                    <Input
+                                      placeholder="Label (e.g., Website)"
+                                      {...field}
+                                      value={field.value ?? ""}
+                                      data-testid={`input-link-label-${index}`}
+                                    />
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>
@@ -321,11 +327,12 @@ export default function ProfilePage() {
                             render={({ field }) => (
                               <FormItem>
                                 <FormControl>
-                                  <Input
-                                    placeholder="URL (e.g., https://...)"
-                                    {...field}
-                                    data-testid={`input-link-url-${index}`}
-                                  />
+                                    <Input
+                                      placeholder="URL (e.g., https://...)"
+                                      {...field}
+                                      value={field.value ?? ""}
+                                      data-testid={`input-link-url-${index}`}
+                                    />
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>

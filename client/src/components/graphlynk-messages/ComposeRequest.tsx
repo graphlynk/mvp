@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { X, Briefcase, Users, Wrench, FileKey, HelpCircle, AlertCircle, Paperclip } from 'lucide-react';
-import { Tier, Intent } from './MessagesContent';
+import { Intent } from './MessagesContent';
+import { Tier } from '@/types/graphlynk';
 
 interface ComposeRequestProps {
   tier: Tier;

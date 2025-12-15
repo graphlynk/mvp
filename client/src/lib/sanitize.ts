@@ -17,17 +17,6 @@ export function sanitizeHtml(dirty: string): string {
       "src", "alt", "width", "height",
       "class", "style"
     ],
-    ALLOWED_STYLES: {
-      "*": {
-        "color": [/.*/],
-        "background-color": [/.*/],
-        "font-size": [/.*/],
-        "font-weight": [/.*/],
-        "text-align": [/.*/],
-        "margin": [/.*/],
-        "padding": [/.*/]
-      }
-    }
   });
 }
 

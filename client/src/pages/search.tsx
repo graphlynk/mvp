@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { SearchResult, User } from "@shared/schema";
+import { User } from "@shared/schema";
 import { Search as SearchIcon, ExternalLink, TrendingUp, ArrowLeft } from "lucide-react";
 import { Link, useLocation } from "wouter";
 
@@ -12,6 +12,14 @@ export default function Search() {
   const [, setLocation] = useLocation();
   const [query, setQuery] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
+
+  interface SearchResult {
+    title: string;
+    link: string;
+    displayLink: string;
+    snippet: string;
+    rank: number;
+  }
 
   const { data: user } = useQuery<User>({
     queryKey: ["/api/user/me"],

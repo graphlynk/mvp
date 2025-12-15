@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Profile, Post } from "@shared/schema";
+import { Profile, Post, type Link as ProfileLink } from "@shared/schema";
 import { ExternalLink, Sparkles, Globe, Mail, Twitter, Linkedin, Instagram, Facebook, Youtube, Github, ChevronLeft, ChevronRight, MoreVertical } from "lucide-react";
 import { Link } from "wouter";
 import { Helmet } from "react-helmet";
@@ -62,7 +62,9 @@ export default function PublicProfile() {
   const username = params?.username;
   const [blogIndex, setBlogIndex] = useState(0);
 
-  const { data: profile, isLoading, error } = useQuery<Profile>({
+  type ProfileWithLinks = Profile & { links?: ProfileLink[] };
+
+  const { data: profile, isLoading, error } = useQuery<ProfileWithLinks>({
     queryKey: ["/api/profile", username],
     enabled: !!username,
   });
@@ -193,13 +195,14 @@ export default function PublicProfile() {
               )}
 
               {/* Profiles Section */}
-              {profile.links && profile.links.length > 0 && (
-                <div className="mb-8">
-                  <h2 className="text-xs font-semibold text-slate-400 mb-4 uppercase tracking-wide">Profiles</h2>
-                  <div className="grid grid-cols-2 gap-3" data-testid="links-container">
-                    {profile.links
-                      .sort((a, b) => a.order - b.order)
-                      .map((link) => (
+                {profile.links && profile.links.length > 0 && (
+                  <div className="mb-8">
+                    <h2 className="text-xs font-semibold text-slate-400 mb-4 uppercase tracking-wide">Profiles</h2>
+                    <div className="grid grid-cols-2 gap-3" data-testid="links-container">
+                      {profile.links
+                        .slice()
+                        .sort((a, b) => (a.order ?? 0) - (b.order ?? 0))
+                        .map((link: ProfileLink) => (
                         <a
                           key={link.id}
                           href={link.url}
@@ -293,7 +296,7 @@ export default function PublicProfile() {
                 : "Person",
               name: profile.title || profile.username,
               url: typeof window !== 'undefined' ? window.location.href : '',
-              sameAs: profile.links?.map((l) => l.url) || [],
+                sameAs: profile.links?.map((link: ProfileLink) => link.url) || [],
               ...(profile.avatarUrl && {
                 [profile.title?.toLowerCase().includes("llc") || profile.title?.toLowerCase().includes("inc") ? "logo" : "image"]: profile.avatarUrl
               }),

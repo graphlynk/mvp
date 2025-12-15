@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Send, Paperclip, MoreVertical, CheckCheck, Clock, FileText, Calendar, X, Archive, BellOff, Mail, Trash2, Ban, Flag, Undo2 } from 'lucide-react';
-import { Thread, Tier } from './MessagesContent';
+import { Thread } from './MessagesContent';
+import { Tier } from '@/types/graphlynk';
 import { BriefGenerator } from './BriefGenerator';
 import { ProposeTimeModal } from './ProposeTimeModal';
 import { ShareFilesModal } from './ShareFilesModal';

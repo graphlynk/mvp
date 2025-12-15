@@ -1,4 +1,12 @@
-import { useState, useRef, useEffect, useCallback } from 'react';
+import {
+  useState,
+  useRef,
+  useEffect,
+  useCallback,
+  type ChangeEvent,
+  type FocusEvent,
+  type KeyboardEvent,
+} from 'react';
 import { 
   Image as ImageIcon, X, ArrowLeft, MoreHorizontal, 
   Plus, Video, Code, Minus, Search, Type, List, Link as LinkIcon,
@@ -496,11 +504,15 @@ export function BlogEditor({ onBack, onPublish, initialData }: BlogEditorProps) 
                 {block.type === 'text' && (
                   <TextareaAutosize 
                     value={block.content}
-                    onChange={(val) => updateBlock(block.id, val)}
-                    onKeyDown={(e) => handleKeyDown(e, block.id)}
-                    onFocus={(e) => {
+                    onChange={(event: ChangeEvent<HTMLTextAreaElement>) =>
+                      updateBlock(block.id, event.target.value)
+                    }
+                    onKeyDown={(event: KeyboardEvent<HTMLTextAreaElement>) =>
+                      handleKeyDown(event, block.id)
+                    }
+                    onFocus={(event: FocusEvent<HTMLTextAreaElement>) => {
                       setActiveBlockId(block.id);
-                      activeTextareaRef.current = e.target;
+                      activeTextareaRef.current = event.target;
                       setShowPlusMenu(false);
                     }}
                     placeholder={blocks.indexOf(block) === 0 ? "Tell your story..." : ""}

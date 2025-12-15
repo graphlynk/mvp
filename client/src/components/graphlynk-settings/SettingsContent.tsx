@@ -687,7 +687,7 @@ export function SettingsContent({ tier }: SettingsContentProps) {
         {settingsTabs.map((tab) => {
           const Icon = tab.icon;
           const isActive = activeSettingsTab === tab.id;
-          const isLocked = tab.tier && tier !== tab.tier && tier !== 'platinum';
+          const isLocked = Boolean(tab.tier && tier !== tab.tier && tier !== 'platinum');
           
           return (
             <button

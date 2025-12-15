@@ -42,7 +42,8 @@ export function SimpleFileUpload({
     setUploading(true);
 
     try {
-      const { uploadURL } = await apiRequest("POST", "/api/objects/upload", {});
+      const uploadUrlResponse = await apiRequest("POST", "/api/objects/upload", {});
+      const { uploadURL } = (await uploadUrlResponse.json()) as { uploadURL: string };
 
       const uploadResponse = await fetch(uploadURL, {
         method: "PUT",
@@ -56,10 +57,12 @@ export function SimpleFileUpload({
         throw new Error("Upload failed");
       }
 
-      const { objectPath } = await apiRequest("PUT", finalizeEndpoint, {
+      const finalizeResponse = await apiRequest("PUT", finalizeEndpoint, {
         avatarURL: uploadURL,
         uploadURL: uploadURL,
       });
+
+      const { objectPath } = (await finalizeResponse.json()) as { objectPath: string };
 
       onUploadComplete(objectPath);
       

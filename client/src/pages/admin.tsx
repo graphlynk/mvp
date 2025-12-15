@@ -11,47 +11,53 @@ import { Users, Ticket, Activity, Shield, Edit, UserCog, LogOut } from 'lucide-r
 import { useState } from 'react';
 import { apiRequest, queryClient } from '@/lib/queryClient';
 import { useToast } from '@/hooks/use-toast';
-import type { User } from '@shared/schema';
+import type { User, SupportTicket } from '@shared/schema';
 
 export default function AdminDashboard() {
   const [, setLocation] = useLocation();
   const { toast } = useToast();
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
-  const [selectedTicket, setSelectedTicket] = useState<any>(null);
+  const [selectedTicket, setSelectedTicket] = useState<SupportTicket | null>(null);
   const [editUserDialogOpen, setEditUserDialogOpen] = useState(false);
   const [editTicketDialogOpen, setEditTicketDialogOpen] = useState(false);
+
+  type AdminStats = {
+    totalUsers?: number;
+    openTickets?: number;
+    recentActivity?: unknown[];
+  };
+
+  type UsersResponse = { users: User[] };
+  type ActivityLog = { id: string; action: string; details: string; createdAt: string };
 
   const { data: currentUser } = useQuery<User>({
     queryKey: ['/api/user/me'],
   });
 
-  const { data: stats, isLoading: isLoadingStats } = useQuery({
+  const { data: stats, isLoading: isLoadingStats } = useQuery<AdminStats>({
     queryKey: ['/api/admin/stats'],
     enabled: !!currentUser?.isAdmin,
   });
 
-  const { data: usersData, isLoading: isLoadingUsers } = useQuery({
+  const { data: usersData, isLoading: isLoadingUsers } = useQuery<UsersResponse>({
     queryKey: ['/api/admin/users'],
     enabled: !!currentUser?.isAdmin,
   });
 
-  const { data: tickets, isLoading: isLoadingTickets } = useQuery({
+  const { data: tickets, isLoading: isLoadingTickets } = useQuery<SupportTicket[]>({
     queryKey: ['/api/admin/tickets'],
     enabled: !!currentUser?.isAdmin,
   });
 
-  const { data: activityLogs, isLoading: isLoadingLogs } = useQuery({
+  const { data: activityLogs, isLoading: isLoadingLogs } = useQuery<ActivityLog[]>({
     queryKey: ['/api/admin/activity-logs'],
     enabled: !!currentUser?.isAdmin,
   });
 
   const updateUserMutation = useMutation({
     mutationFn: async ({ userId, updates }: { userId: string; updates: any }) => {
-      return apiRequest(`/api/admin/users/${userId}`, {
-        method: 'PATCH',
-        body: JSON.stringify(updates),
-        headers: { 'Content-Type': 'application/json' },
-      });
+      const response = await apiRequest('PATCH', `/api/admin/users/${userId}`, updates);
+      return response.json();
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['/api/admin/users'] });
@@ -73,11 +79,8 @@ export default function AdminDashboard() {
 
   const updateTicketMutation = useMutation({
     mutationFn: async ({ ticketId, updates }: { ticketId: string; updates: any }) => {
-      return apiRequest(`/api/admin/tickets/${ticketId}`, {
-        method: 'PATCH',
-        body: JSON.stringify(updates),
-        headers: { 'Content-Type': 'application/json' },
-      });
+      const response = await apiRequest('PATCH', `/api/admin/tickets/${ticketId}`, updates);
+      return response.json();
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['/api/admin/tickets'] });
@@ -99,9 +102,8 @@ export default function AdminDashboard() {
 
   const impersonateMutation = useMutation({
     mutationFn: async (userId: string) => {
-      return apiRequest(`/api/admin/impersonate/${userId}`, {
-        method: 'POST',
-      });
+      const response = await apiRequest('POST', `/api/admin/impersonate/${userId}`);
+      return response.json();
     },
     onSuccess: (data) => {
       toast({
@@ -123,9 +125,7 @@ export default function AdminDashboard() {
 
   const exitImpersonationMutation = useMutation({
     mutationFn: async () => {
-      return apiRequest('/api/admin/exit-impersonation', {
-        method: 'POST',
-      });
+      return apiRequest('POST', '/api/admin/exit-impersonation');
     },
     onSuccess: () => {
       toast({
