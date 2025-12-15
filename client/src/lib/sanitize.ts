@@ -1,0 +1,33 @@
+import DOMPurify from "dompurify";
+
+/**
+ * Sanitize HTML content to prevent XSS attacks
+ * Allows safe HTML tags while removing dangerous scripts
+ */
+export function sanitizeHtml(dirty: string): string {
+  return DOMPurify.sanitize(dirty, {
+    ALLOWED_TAGS: [
+      "p", "br", "strong", "em", "u", "s", "a", "ul", "ol", "li",
+      "h1", "h2", "h3", "h4", "h5", "h6",
+      "blockquote", "code", "pre",
+      "img", "div", "span"
+    ],
+    ALLOWED_ATTR: [
+      "href", "target", "rel",
+      "src", "alt", "width", "height",
+      "class", "style"
+    ],
+    ALLOWED_STYLES: {
+      "*": {
+        "color": [/.*/],
+        "background-color": [/.*/],
+        "font-size": [/.*/],
+        "font-weight": [/.*/],
+        "text-align": [/.*/],
+        "margin": [/.*/],
+        "padding": [/.*/]
+      }
+    }
+  });
+}
+

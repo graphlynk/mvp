@@ -1,0 +1,147 @@
+Alpha Graph / Graphlynk - Knowledge Graph business idea
+
+
+
+we want to rethink our startup Saas business to build a service based platform that creates, fixes or enhances a brand’s online presence and SEO by creating a google knowledge graph for their brand. A big part of our core value proposition is that we are creating established entities for google to see as legitimate, better than platforms like wikepidea, wiki data, crunch base, music brains, IMDb offer now. We don’t want to be using third party services to create the KGs and as much as possible for the process to create it, should be automatic/ created by AI. So the functionality would be: User Input → Entity Classification → Schema Template Generation → AI Field Completion → JSON-LD Code Build → Validation → Export / Monitoring. Each of these would be handled by our internal AI/logic stack we create. And we would need the backend / coding to be as advanced as possible to compete with the 
+
+
+
+
+
+But we need to always remain legitimate in the eyes of google. So we need to be competitive with these platforms - all these sources google trusts and uses to index so we need to be seen the same, as a trusted source by google. And we want to setup a security feature if people who are not legitimate are trying to set up a knowledge panel or trying to add duplicate names or false information etc. how to build in protection for this for this, because if just anyone can build a knowledge graph and claim they are notable, Google is no longer going to see us as a trusted source. Also, the creation of 
+
+
+
+We would also want to have a short link feature where the basic version is free and we can compete on this with Linktree / Beacon.  Advanced features will be available in paid tiers and allow users to change layout and add a blog that would be embedded in the short link which would serve to further boost search rankings. For each blog post, at the end it would include the first and last name of the person or the company/ brand name (however the user wants ). The blog post would have a Functionality to share to social sites like Instagram story, Linkedin, Facebook, twitter, reddit and via email. We would include automatically created FAQs for each blog post based on the blog title and keywords of the blog. The blog posts would appear on the short link displayed like the way Forbes displays their blogs as If it’s like an instagram profile so each image would include the title of the blog in the image and when you click on it, you can read the full blog article. We want to optimize the SEO strength of each blog post so each post would automatically include the canonical tags for the headings and subheadings. On the short link profile, users can post up to five photos and up to one video that they can embed from YouTube or Vimeo. E-commerce brands, as an example, can embed the link to the product from their website / store site to the image to redirect to their store / wherever their product is sold. Or if it’s say a music artist, they would embed the link to their song or album or whatever they are trying to link to. For each photo, there will be a share button to share the photos to social media sites like IG story, Facebook feed, Twitter, Pinterest. The short link would include a bio field and for premium tiers, the AI agent can make suggestions for the bio based on the user’s profile.
+ 
+
+Our site would also include a search engine that mimics google but shows the search ranking of any keyword, phrase or question entered, for free. So this and the basic short link would be part of our freemium/MVP model to drive traffic.  For the search engine, for higher paid tiers, when users search they will also get suggestions for similar keywords, phrases, questions to the one searched, and would include similar searches with recent high search rankings that would appear to free users as well  but there would be a paywall to access. Also, for higher tiered paid options, there will be an AI agent that would say make suggestions to the user like this topic / keyword has seen a XX% increase in search traffic; I suggest you write a blog article about this and share on socials. 
+
+
+
+
+
+To avoid the need for servers or verifying licenses, we tell the AI agent / crawler that based upon the API of wikepeida, music brains, imbd etc, it will show static profiles that these brands / names are on our website. 
+
+
+
+🧭 Two URLs, Two Purposes — But Deeply Connected
+
+URL Type
+
+Example
+
+Primary Purpose
+
+Should It Serve as the Entity URL?
+
+Short Link (Link-in-Bio)
+
+yourplatform.com/julie
+
+For human users — social bio, traffic hub, backlinks
+
+❌ No, not the main entity URL (but still referenced)
+
+Public Entity Profile (Dashboard)
+
+yourplatform.com/entity/julie-schatz
+
+For Google — structured, canonical data, JSON-LD schema
+
+✅ Yes, this should be the canonical entity URL
+
+🧩 Here’s Why:
+
+The short link is designed for user convenience + traffic routing
+→ like Linktree or Beacons, optimized for clicks, not data structure.
+Google treats those more like content pages or profile hubs.
+
+The entity profile, on the other hand:
+
+Is machine-readable (JSON-LD structured)
+Includes schema fields (@context, @type, @id)
+References external sources (socials, websites, etc.)
+Forms the backbone of your internal Knowledge Graph
+Therefore, your platform’s Knowledge Graph and Google’s indexing should always reference the entity profile URL — not the short link — as the @id in schema markup.
+
+
+
+
+
+Using agents, we would take the APIs from sources like Wikipedia and create these type of profiles for notable figures, companies and brands and then we offer for people and brands to claim their profile and claiming the profile on our platform would automatically claim their knowledge graph profile as well. 
+
+
+
+Question: how are google knowledge graphs - what is the hidden system for how google creates these knowledge graphs 
+
+
+
+So from our experience if say it’s a music artist we have to use music brains to make the knowledge graph appear. For other types of businesses Wiki data is another example of what is used to say create a podcast that would help establish a brands presence but you have to be notable. In other words what is it that these type of platforms do that signals to google the authority to create the panel? So our platform needs to include something like this and more so everything can be built from our platform and compete with these type of platforms.
+
+
+
+For the short line profile, a subscriber on a free or paid version get to create their own @ handle and the link address would allow them to have the link address as our domain then the subscriber’s name so ‘graphlynk.com/subscriber'shandle.'   We also want the site to have the highest chances of vitality and high usage with allowing free users to perform unlimited searches but for advanced analytical features, suggestions and any Ai assistance, there would be a paywall. 
+
+
+
+Need:
+
+
+
+For the search engine, we need the search volume 
+
+
+
+
+Please build a website will offer setting up a know
+
+
+
+Act as a senior web developer that has 30 years or more of experience and success building, designing and scaling websites and apps in the digital marketing and SEO industry. 
+
+
+
+We want you to build a website that has a service for businesses and creators that need a google knowledge panel created. There will be a free tier for users to test the platform out. If they only need a knowledge graph created with no ongoing monitoring, there will be a fixed price for this depending on their industry.  There will be an AI assistant agent that will ask if anyone wants to inquire only about getting the google knowledge graph created. We would need the agent to know all the information needed to be collected in order for our technology to automatically create the customer’s google knowledge graph.  The goal for the AI agent is to convert potential leads into paying customers systematically. The AI agent will work with strategy and advanced tools to turn leads into paying customers.  The free tier will give some insights into the customer’s presence online and brand authority with the goal of touching on their pain points and emotional triggers to get them to want to upgrade for more detailed insights and complete creation of a google knowledge graph.  In the premium version, we would like for you to 1. Build and include a short link profile feature like linktree offers with an option to add their logo and socials and customize the layout. 2. Ability to chat with an AI agent through a chat box about any questions they have regarding their account or their knowledge graph. 3. Has all the advanced tools needed to create their google knowledge graph 4. Real time updates to their dashboard about their current metrics and include suggestions to improve their SEO and google knowledge graph. Customers who sign up with an account log in with their email but receive a passkey in their email instead of creating a password. 
+
+
+
+
+
+For the MVP, you will also need to act as a product manager and build a web extension that displays the number of times a phrase, keyword or question is searched on google and will display the number next to the phrase / keyword / question before the search entered and while the person is typing.  Please refer to the screenshot attached while building this. When an account is created, the free version will give users 100 free tokens which will be equivalent to 48 hours and we want a feature showing the tokens counting down as the time is lost. However, if a user not logged in, the timing is paused. It’s only for when they are logged in. Please set up an IP security system to stop people from creating free accounts with different google accounts. The extension will give suggestions for similar keywords, phrases or questions depending on what the user is searching and will show the search numbers for those suggestions as well.  There will also be a feature to go into more detail on the search numbers in terms of region, age, demographics etc (all the inputs that are extremely valuable to businesses). For the UI, it should show high quality graphs and info with animation and displayed in an advanced manner. For premium subscribers, if you do not want to add the web extension on your browser, there will be the capability to use the same feature by searching on google in your premium account. 
+
+
+
+
+
+Need ai agents to play roles to make sure the code doesn’t break, too security flaws, make sure updates are implemented as needed and as we add features 
+
+
+
+
+
+Add a third tier that will include optimization for the brand’s presence on chat GPT
+
+
+
+For the extension, we want for users to have a 7-day free trial that gives then access to all the detailed capabilities  of the search volumes and filtering, but after the 7-day trial, they can’t see any insights or they have to upgrade 
+
+
+
+References - 
+
+
+
+https://www.starterstory.com/stories/yadaphone?_kx=yFD2eXmRyHYs4YkZMeuVDvvNQBocZuBWyRAh458gy1aNlV3dTRgko63wXByBFLEv.Jchkiv
+
+
+
+https://www.starterstory.com/stories/audiopen?_kx=yFD2eXmRyHYs4YkZMeuVDvvNQBocZuBWyRAh458gy1aNlV3dTRgko63wXByBFLEv.Jchkiv
+
+
+
+Use these steps! 
+
+https://www.instagram.com/reel/DOV0HY3EY8s/?igsh=MWR4enh4aWxvajh4MQ==
+
+

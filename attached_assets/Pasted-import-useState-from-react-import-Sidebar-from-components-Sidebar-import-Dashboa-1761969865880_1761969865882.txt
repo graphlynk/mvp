@@ -1,0 +1,56 @@
+import { useState } from 'react';
+import { Sidebar } from './components/Sidebar';
+import { DashboardHome } from './components/DashboardHome';
+import { ProfileSection } from './components/ProfileSection';
+import { SearchTrackingSection } from './components/SearchTrackingSection';
+import { BlogPostsSection } from './components/BlogPostsSection';
+import { AnalyticsSection } from './components/AnalyticsSection';
+import { MailingListSection } from './components/MailingListSection';
+import { SettingsSection } from './components/SettingsSection';
+import { NetworkBackground } from './components/NetworkBackground';
+
+export default function App() {
+  const [activeTab, setActiveTab] = useState('dashboard');
+
+  const renderContent = () => {
+    switch (activeTab) {
+      case 'dashboard':
+        return <DashboardHome />;
+      case 'profile':
+        return <ProfileSection />;
+      case 'search':
+        return <SearchTrackingSection />;
+      case 'blog':
+        return <BlogPostsSection />;
+      case 'analytics':
+        return <AnalyticsSection />;
+      case 'mailing':
+        return <MailingListSection />;
+      case 'settings':
+        return <SettingsSection />;
+      default:
+        return <DashboardHome />;
+    }
+  };
+
+  return (
+    <div className="flex h-screen bg-gradient-to-br from-[#1e3a8a] via-[#1e40af] to-[#1e3a8a] relative overflow-hidden">
+      {/* Network background */}
+      <NetworkBackground />
+      
+      {/* Subtle gradient overlay */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
+        <div className="absolute top-1/2 right-1/4 w-96 h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute bottom-0 left-1/2 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-2000"></div>
+      </div>
+      
+      <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
+      <main className="flex-1 overflow-y-auto relative z-10">
+        <div className="p-8">
+          {renderContent()}
+        </div>
+      </main>
+    </div>
+  );
+}

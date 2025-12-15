@@ -1,0 +1,1107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* LIGHT MODE */
+:root {
+  --button-outline: rgba(0,0,0, .10);
+  --badge-outline: rgba(0,0,0, .05);
+
+  /* Automatic computation of border around primary / danger buttons */
+  --opaque-button-border-intensity: -8; /* In terms of percentages */
+
+  /* Backgrounds applied on top of other backgrounds when hovered/active */
+  --elevate-1: rgba(0,0,0, .03);
+  --elevate-2: rgba(0,0,0, .08);
+
+  --background: 0 0% 98%;
+
+  --foreground: 222 15% 15%;
+
+  --border: 220 8% 88%;
+
+  --card: 0 0% 96%;
+
+  --card-foreground: 222 15% 15%;
+
+  --card-border: 220 8% 92%;
+
+  --sidebar: 0 0% 94%;
+
+  --sidebar-foreground: 222 15% 15%;
+
+  --sidebar-border: 220 8% 89%;
+
+  --sidebar-primary: 215 85% 28%;
+
+  --sidebar-primary-foreground: 210 40% 98%;
+
+  --sidebar-accent: 220 12% 89%;
+
+  --sidebar-accent-foreground: 222 15% 20%;
+
+  --sidebar-ring: 215 85% 28%;
+
+  --popover: 0 0% 92%;
+
+  --popover-foreground: 222 15% 15%;
+
+  --popover-border: 220 8% 86%;
+
+  --primary: 215 85% 28%;
+
+  --primary-foreground: 210 40% 98%;
+
+  --secondary: 220 12% 87%;
+
+  --secondary-foreground: 222 15% 20%;
+
+  --muted: 220 10% 90%;
+
+  --muted-foreground: 222 12% 35%;
+
+  --accent: 215 18% 88%;
+
+  --accent-foreground: 215 20% 25%;
+
+  --destructive: 0 72% 32%;
+
+  --destructive-foreground: 0 0% 98%;
+
+  --input: 220 10% 75%;
+  --ring: 215 85% 28%;
+  --chart-1: 215 85% 28%;
+  --chart-2: 195 75% 32%;
+  --chart-3: 175 65% 35%;
+  --chart-4: 155 55% 38%;
+  --chart-5: 135 50% 40%;
+
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: -0.03em;
+  --font-serif: Georgia, serif;
+  --font-mono: "JetBrains Mono", "Courier New", monospace;
+  --radius: .5rem; /* 8px */
+  --shadow-2xs: 0px 1px 2px 0px hsl(220 20% 20% / 0.03);
+  --shadow-xs: 0px 1px 3px 0px hsl(220 20% 20% / 0.05);
+  --shadow-sm: 0px 2px 4px -1px hsl(220 20% 20% / 0.06), 0px 1px 2px -1px hsl(220 20% 20% / 0.04);
+  --shadow: 0px 4px 6px -1px hsl(220 20% 20% / 0.08), 0px 2px 4px -2px hsl(220 20% 20% / 0.05);
+  --shadow-md: 0px 6px 12px -2px hsl(220 20% 20% / 0.10), 0px 3px 6px -3px hsl(220 20% 20% / 0.07);
+  --shadow-lg: 0px 10px 20px -5px hsl(220 20% 20% / 0.12), 0px 4px 8px -4px hsl(220 20% 20% / 0.08);
+  --shadow-xl: 0px 20px 30px -10px hsl(220 20% 20% / 0.14), 0px 8px 16px -8px hsl(220 20% 20% / 0.10);
+  --shadow-2xl: 0px 25px 50px -12px hsl(220 20% 20% / 0.18);
+  --tracking-normal: 0em;
+  --spacing: 0.25rem;
+
+  /* Automatically computed borders - intensity can be controlled by the user by the --opaque-button-border-intensity setting */
+
+  /* Fallback for older browsers */
+  --sidebar-primary-border: hsl(var(--sidebar-primary));
+  --sidebar-primary-border: hsl(from hsl(var(--sidebar-primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  /* Fallback for older browsers */
+  --sidebar-accent-border: hsl(var(--sidebar-accent));
+  --sidebar-accent-border: hsl(from hsl(var(--sidebar-accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  /* Fallback for older browsers */
+  --primary-border: hsl(var(--primary));
+  --primary-border: hsl(from hsl(var(--primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  /* Fallback for older browsers */
+  --secondary-border: hsl(var(--secondary));
+  --secondary-border: hsl(from hsl(var(--secondary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  /* Fallback for older browsers */
+  --muted-border: hsl(var(--muted));
+  --muted-border: hsl(from hsl(var(--muted)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  /* Fallback for older browsers */
+  --accent-border: hsl(var(--accent));
+  --accent-border: hsl(from hsl(var(--accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  /* Fallback for older browsers */
+  --destructive-border: hsl(var(--destructive));
+  --destructive-border: hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+}
+
+.dark {
+  --button-outline: rgba(255,255,255, .10);
+  --badge-outline: rgba(255,255,255, .05);
+
+  --opaque-button-border-intensity: 9;  /* In terms of percentages */
+
+  /* Backgrounds applied on top of other backgrounds when hovered/active */
+  --elevate-1: rgba(255,255,255, .04);
+  --elevate-2: rgba(255,255,255, .09);
+
+  --background: 222 12% 8%;
+
+  --foreground: 210 15% 92%;
+
+  --border: 220 10% 18%;
+
+  --card: 222 12% 10%;
+
+  --card-foreground: 210 15% 92%;
+
+  --card-border: 220 10% 14%;
+
+  --sidebar: 222 12% 12%;
+
+  --sidebar-foreground: 210 15% 92%;
+
+  --sidebar-border: 220 10% 16%;
+
+  --sidebar-primary: 215 85% 30%;
+
+  --sidebar-primary-foreground: 210 40% 98%;
+
+  --sidebar-accent: 220 14% 16%;
+
+  --sidebar-accent-foreground: 210 15% 88%;
+
+  --sidebar-ring: 215 85% 30%;
+
+  --popover: 222 12% 14%;
+
+  --popover-foreground: 210 15% 92%;
+
+  --popover-border: 220 10% 18%;
+
+  --primary: 215 85% 30%;
+
+  --primary-foreground: 210 40% 98%;
+
+  --secondary: 220 14% 18%;
+
+  --secondary-foreground: 210 15% 88%;
+
+  --muted: 220 12% 16%;
+
+  --muted-foreground: 220 10% 65%;
+
+  --accent: 215 16% 20%;
+
+  --accent-foreground: 215 15% 85%;
+
+  --destructive: 0 72% 32%;
+
+  --destructive-foreground: 0 0% 98%;
+
+  /* Used as the border around inputs. Dark mode: Should be a border that is light enough to have high contrast when rendered on a --card background. More contrast than standard --border */
+  --input: 220 12% 35%;
+  --ring: 215 85% 30%;
+  --chart-1: 215 85% 65%;
+  --chart-2: 195 75% 68%;
+  --chart-3: 175 65% 70%;
+  --chart-4: 155 55% 72%;
+  --chart-5: 135 50% 75%;
+
+  --shadow-2xs: 0px 1px 2px 0px hsl(220 40% 5% / 0.30);
+  --shadow-xs: 0px 1px 3px 0px hsl(220 40% 5% / 0.40);
+  --shadow-sm: 0px 2px 4px -1px hsl(220 40% 5% / 0.45), 0px 1px 2px -1px hsl(220 40% 5% / 0.35);
+  --shadow: 0px 4px 6px -1px hsl(220 40% 5% / 0.50), 0px 2px 4px -2px hsl(220 40% 5% / 0.40);
+  --shadow-md: 0px 6px 12px -2px hsl(220 40% 5% / 0.55), 0px 3px 6px -3px hsl(220 40% 5% / 0.45);
+  --shadow-lg: 0px 10px 20px -5px hsl(220 40% 5% / 0.60), 0px 4px 8px -4px hsl(220 40% 5% / 0.50);
+  --shadow-xl: 0px 20px 30px -10px hsl(220 40% 5% / 0.65), 0px 8px 16px -8px hsl(220 40% 5% / 0.55);
+  --shadow-2xl: 0px 25px 50px -12px hsl(220 40% 5% / 0.70);
+
+  /* Automatically computed borders - intensity can be controlled by the user by the --opaque-button-border-intensity setting */
+  --sidebar-primary-border: hsl(from hsl(var(--sidebar-primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --sidebar-accent-border: hsl(from hsl(var(--sidebar-accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --primary-border: hsl(from hsl(var(--primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --secondary-border: hsl(from hsl(var(--secondary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --muted-border: hsl(from hsl(var(--muted)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --accent-border: hsl(from hsl(var(--accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+  --destructive-border: hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    letter-spacing: -0.03em;
+  }
+}
+
+/**
+ * Using the elevate system.
+ * Automatic contrast adjustment.
+ *
+ * <element className="hover-elevate" />
+ * <element className="active-elevate-2" />
+ *
+ * // Using the tailwind utility when a data attribute is "on"
+ * <element className="toggle-elevate data-[state=on]:toggle-elevated" />
+ * // Or manually controlling the toggle state
+ * <element className="toggle-elevate toggle-elevated" />
+ *
+ * Elevation systems have to handle many states.
+ * - not-hovered, vs. hovered vs. active  (three mutually exclusive states)
+ * - toggled or not
+ * - focused or not (this is not handled with these utilities)
+ *
+ * Even without handling focused or not, this is six possible combinations that
+ * need to be distinguished from eachother visually.
+ */
+@layer utilities {
+
+  /* Hide ugly search cancel button in Chrome until we can style it properly */
+  input[type="search"]::-webkit-search-cancel-button {
+    @apply hidden;
+  }
+
+  /* Placeholder styling for contentEditable div */
+  [contenteditable][data-placeholder]:empty::before {
+    content: attr(data-placeholder);
+    color: hsl(var(--muted-foreground));
+    pointer-events: none;
+  }
+
+  /* .no-default-hover-elevate/no-default-active-elevate is an escape hatch so consumers of
+   * buttons/badges can remove the automatic brightness adjustment on interactions
+   * and program their own. */
+  .no-default-hover-elevate {}
+
+  .no-default-active-elevate {}
+
+
+  /**
+   * Toggleable backgrounds go behind the content. Hoverable/active goes on top.
+   * This way they can stack/compound. Both will overlap the parent's borders!
+   * So borders will be automatically adjusted both on toggle, and hover/active,
+   * and they will be compounded.
+   */
+  .toggle-elevate::before,
+  .toggle-elevate-2::before {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0px;
+    /*border-radius: inherit;   match rounded corners */
+    border-radius: inherit;
+    z-index: -1;
+    /* sits behind content but above backdrop */
+  }
+
+  .toggle-elevate.toggle-elevated::before {
+    background-color: var(--elevate-2);
+  }
+
+  /* If there's a 1px border, adjust the inset so that it covers that parent's border */
+  .border.toggle-elevate::before {
+    inset: -1px;
+  }
+
+  /* Does not work on elements with overflow:hidden! */
+  .hover-elevate:not(.no-default-hover-elevate),
+  .active-elevate:not(.no-default-active-elevate),
+  .hover-elevate-2:not(.no-default-hover-elevate),
+  .active-elevate-2:not(.no-default-active-elevate) {
+    position: relative;
+    z-index: 0;
+  }
+
+  .hover-elevate:not(.no-default-hover-elevate)::after,
+  .active-elevate:not(.no-default-active-elevate)::after,
+  .hover-elevate-2:not(.no-default-hover-elevate)::after,
+  .active-elevate-2:not(.no-default-active-elevate)::after {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0px;
+    /*border-radius: inherit;   match rounded corners */
+    border-radius: inherit;
+    z-index: 999;
+    /* sits in front of content */
+  }
+
+  .hover-elevate:hover:not(.no-default-hover-elevate)::after,
+  .active-elevate:active:not(.no-default-active-elevate)::after {
+    background-color: var(--elevate-1);
+  }
+
+  .hover-elevate-2:hover:not(.no-default-hover-elevate)::after,
+  .active-elevate-2:active:not(.no-default-active-elevate)::after {
+    background-color: var(--elevate-2);
+  }
+
+  /* If there's a 1px border, adjust the inset so that it covers that parent's border */
+  .border.hover-elevate:not(.no-hover-interaction-elevate)::after,
+  .border.active-elevate:not(.no-active-interaction-elevate)::after,
+  .border.hover-elevate-2:not(.no-hover-interaction-elevate)::after,
+  .border.active-elevate-2:not(.no-active-interaction-elevate)::after,
+  .border.hover-elevate:not(.no-hover-interaction-elevate)::after {
+    inset: -1px;
+  }
+
+  /* Hero Background Animations */
+  @keyframes hero-pan {
+    0% {
+      transform: scale(1.1) translate(0, 0);
+    }
+    50% {
+      transform: scale(1.15) translate(-2%, -1%);
+    }
+    100% {
+      transform: scale(1.1) translate(0, 0);
+    }
+  }
+
+  @keyframes gradient-shift {
+    0% {
+      background: linear-gradient(135deg, hsl(var(--primary) / 0.85) 0%, hsl(var(--primary) / 0.70) 33%, hsl(var(--primary) / 0.60) 66%, hsl(var(--primary) / 0.50) 100%);
+    }
+    25% {
+      background: linear-gradient(225deg, hsl(var(--primary) / 0.80) 0%, hsl(var(--primary) / 0.65) 33%, hsl(var(--primary) / 0.55) 66%, hsl(var(--primary) / 0.45) 100%);
+    }
+    50% {
+      background: linear-gradient(315deg, hsl(var(--primary) / 0.75) 0%, hsl(var(--primary) / 0.60) 33%, hsl(var(--primary) / 0.50) 66%, hsl(var(--primary) / 0.40) 100%);
+    }
+    75% {
+      background: linear-gradient(45deg, hsl(var(--primary) / 0.80) 0%, hsl(var(--primary) / 0.65) 33%, hsl(var(--primary) / 0.55) 66%, hsl(var(--primary) / 0.45) 100%);
+    }
+    100% {
+      background: linear-gradient(135deg, hsl(var(--primary) / 0.85) 0%, hsl(var(--primary) / 0.70) 33%, hsl(var(--primary) / 0.60) 66%, hsl(var(--primary) / 0.50) 100%);
+    }
+  }
+
+  .animate-hero-pan {
+    animation: hero-pan 30s ease-in-out infinite;
+  }
+
+  .animate-gradient {
+    animation: gradient-shift 15s ease-in-out infinite;
+  }
+
+  /* Wire Light Flow Animation */
+  @keyframes wire-light-flow {
+    0% {
+      box-shadow: 0 0 10px rgba(34, 211, 238, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 15px rgba(34, 211, 238, 0.8);
+    }
+    100% {
+      box-shadow: 0 0 10px rgba(34, 211, 238, 0.3);
+    }
+  }
+
+  /* Light Particle Animation Through Wires */
+  @keyframes wire-light-particle {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0);
+    }
+    20% {
+      opacity: 1;
+      transform: translate(0%, 0%) scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: translate(50%, 50%) scale(1);
+    }
+    80% {
+      opacity: 1;
+      transform: translate(100%, 100%) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(150%, 150%) scale(0);
+    }
+  }
+
+  /* Node Glow Animations */
+  @keyframes node-glow-1 {
+    0%, 100% {
+      opacity: 0.3;
+      filter: brightness(1);
+    }
+    50% {
+      opacity: 1;
+      filter: brightness(1.8);
+    }
+  }
+
+  @keyframes node-glow-2 {
+    0%, 100% {
+      opacity: 0.2;
+      filter: brightness(1);
+    }
+    50% {
+      opacity: 0.9;
+      filter: brightness(1.6);
+    }
+  }
+
+  @keyframes node-glow-3 {
+    0%, 100% {
+      opacity: 0.25;
+      filter: brightness(1.1);
+    }
+    50% {
+      opacity: 0.95;
+      filter: brightness(1.7);
+    }
+  }
+
+  /* Floating orb animation */
+  @keyframes floating-orb {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+      opacity: 0.6;
+    }
+    25% {
+      transform: translate(10px, -15px) scale(1.1);
+      opacity: 0.8;
+    }
+    50% {
+      transform: translate(-8px, -25px) scale(1.05);
+      opacity: 0.7;
+    }
+    75% {
+      transform: translate(12px, -12px) scale(0.95);
+      opacity: 0.75;
+    }
+  }
+
+  /* Glass Float Animation */
+  @keyframes glass-float {
+    0%, 100% {
+      transform: translate(0, 0);
+      opacity: 0.5;
+    }
+    25% {
+      transform: translate(-30px, -30px);
+      opacity: 0.3;
+    }
+    50% {
+      transform: translate(30px, 30px);
+      opacity: 0.6;
+    }
+    75% {
+      transform: translate(-20px, 20px);
+      opacity: 0.4;
+    }
+  }
+
+  .animate-glass-float {
+    animation: glass-float 20s ease-in-out infinite;
+  }
+
+  /* Glass Card Motion Effect */
+  .glass-card-motion {
+    background: rgba(255, 255, 255, 0.7) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .glass-card-motion:hover {
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    transform: translateY(-8px);
+  }
+
+  .dark .glass-card-motion {
+    background: rgba(30, 41, 59, 0.6) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(148, 163, 184, 0.1) !important;
+  }
+
+  .dark .glass-card-motion:hover {
+    background: rgba(30, 41, 59, 0.8) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(148, 163, 184, 0.2) !important;
+    transform: translateY(-8px);
+  }
+
+  /* Custom Scrollbar for Modal */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: hsl(var(--muted) / 0.3);
+    border-radius: 100px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.4);
+    border-radius: 100px;
+    transition: background 0.3s ease;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.6);
+  }
+
+  /* Shooting Star Effects for Graph Connectors */
+  @keyframes shooting-star-1 {
+    0% {
+      opacity: 0;
+      transform: translate(-100%, -100%) scale(0);
+    }
+    10% {
+      opacity: 1;
+      transform: translate(0%, 0%) scale(1);
+    }
+    20% {
+      opacity: 0;
+      transform: translate(100%, 100%) scale(0);
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes shooting-star-2 {
+    0% {
+      opacity: 0;
+      transform: translate(100%, -100%) scale(0);
+    }
+    10% {
+      opacity: 1;
+      transform: translate(0%, 0%) scale(1);
+    }
+    20% {
+      opacity: 0;
+      transform: translate(-100%, 100%) scale(0);
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes shooting-star-3 {
+    0% {
+      opacity: 0;
+      transform: translate(-100%, 100%) scale(0);
+    }
+    10% {
+      opacity: 1;
+      transform: translate(0%, 0%) scale(1);
+    }
+    20% {
+      opacity: 0;
+      transform: translate(100%, -100%) scale(0);
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  /* Cube Glow/Pulse Effects - Deprecated, using node-glow instead */
+  @keyframes cube-glow-1 {
+    0%, 100% {
+      opacity: 0.3;
+      filter: brightness(1);
+    }
+    50% {
+      opacity: 1;
+      filter: brightness(1.8);
+    }
+  }
+
+  @keyframes cube-glow-2 {
+    0%, 100% {
+      opacity: 0.2;
+      filter: brightness(1);
+    }
+    50% {
+      opacity: 0.9;
+      filter: brightness(1.6);
+    }
+  }
+
+  @keyframes cube-glow-3 {
+    0%, 100% {
+      opacity: 0.25;
+      filter: brightness(1.1);
+    }
+    50% {
+      opacity: 0.95;
+      filter: brightness(1.7);
+    }
+  }
+
+  /* Gradient Icon Wrapper Styles - Works with Lucide SVG icons */
+  .icon-gradient-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary) / 0.5) 100%);
+    -webkit-mask: var(--icon-mask);
+    mask: var(--icon-mask);
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+  }
+
+  /* Simpler approach: colored icons with filter for gradient-like effect */
+  .icon-gradient svg {
+    filter: drop-shadow(0 0 2px hsl(var(--primary) / 0.3));
+    color: hsl(var(--primary));
+  }
+
+  .icon-gradient-secondary svg {
+    filter: drop-shadow(0 0 2px hsl(var(--chart-2) / 0.3));
+    color: hsl(var(--primary));
+  }
+
+  .icon-gradient-accent svg {
+    filter: drop-shadow(0 0 2px hsl(var(--chart-1) / 0.3));
+    color: hsl(var(--chart-1));
+  }
+
+  /* Modern Card Glow Effect */
+  .card-glow {
+    position: relative;
+  }
+
+  .card-glow::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.3), transparent 50%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .card-glow:hover::before {
+    opacity: 1;
+  }
+
+  /* Dashboard Background Animation */
+  @keyframes dashboard-gradient-shift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .animate-dashboard-bg {
+    background-size: 200% 200%;
+    animation: dashboard-gradient-shift 20s ease-in-out infinite;
+  }
+
+  /* Respect user's motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-dashboard-bg {
+      animation: none;
+      background-size: 100% 100%;
+    }
+  }
+
+  /* ===========================================
+   * GRAPHLYNK DASHBOARD CUSTOM STYLES
+   * Vision UI - Next Generation Design System
+   * =========================================== */
+
+  /* Glassmorphism and Mirror Effects */
+  .glass-card {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    box-shadow: 
+      0 2px 12px 0 rgba(0, 0, 0, 0.08),
+      0 1px 3px 0 rgba(0, 0, 0, 0.04);
+  }
+
+  :is(.dark *) .glass-card {
+    background: #12161A;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 
+      0 4px 20px 0 rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .glass-card-light {
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    box-shadow: 
+      0 2px 12px 0 rgba(0, 0, 0, 0.08),
+      0 1px 3px 0 rgba(0, 0, 0, 0.04);
+  }
+
+  :is(.dark *) .glass-card-light {
+    background: #12161A;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 
+      0 4px 20px 0 rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+  }
+
+  /* Toast Notifications for Graphlynk */
+  :root {
+    --toast-bg: #FFFFFF;
+    --toast-text: #0B0D10;
+  }
+
+  :is(.dark *) {
+    --toast-bg: rgba(18, 22, 26, 0.95);
+    --toast-text: #FFFFFF;
+  }
+
+  [data-sonner-toast] {
+    background: var(--toast-bg) !important;
+    border: 1px solid rgba(110, 231, 245, 0.3) !important;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3) !important;
+    backdrop-filter: blur(10px) !important;
+  }
+
+  [data-sonner-toast] [data-title] {
+    color: var(--toast-text) !important;
+    font-weight: 500 !important;
+  }
+
+  [data-sonner-toast] [data-button] {
+    background: linear-gradient(to right, #0b3d84, #9FF2FF) !important;
+    color: white !important;
+    border: none !important;
+    padding: 6px 16px !important;
+    border-radius: 8px !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+  }
+
+  [data-sonner-toast] [data-button]:hover {
+    opacity: 0.9 !important;
+  }
+
+  .mirror-surface {
+    position: relative;
+    background: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.98) 0%, 
+      rgba(248, 250, 252, 0.95) 50%, 
+      rgba(255, 255, 255, 0.98) 100%);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+  }
+
+  :is(.dark *) .mirror-surface {
+    background: linear-gradient(135deg, 
+      rgba(18, 22, 26, 0.95) 0%, 
+      rgba(15, 18, 22, 0.9) 50%, 
+      rgba(18, 22, 26, 0.95) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .mirror-surface::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.05) 100%
+    );
+    pointer-events: none;
+  }
+
+  /* Floating and Depth Effects */
+  .floating {
+    animation: floating 8s ease-in-out infinite;
+  }
+
+  .depth-shadow {
+    box-shadow: 
+      0 10px 30px -10px rgba(11, 61, 132, 0.15),
+      0 5px 15px -5px rgba(11, 61, 132, 0.1);
+  }
+
+  .depth-shadow-lg {
+    box-shadow: 
+      0 15px 45px -15px rgba(11, 61, 132, 0.2),
+      0 8px 20px -8px rgba(11, 61, 132, 0.15);
+  }
+
+  /* Reflective Glow */
+  .glow-primary {
+    box-shadow: 
+      0 0 15px rgba(11, 61, 132, 0.15),
+      0 0 30px rgba(11, 61, 132, 0.1);
+  }
+
+  .glow-accent {
+    box-shadow: 
+      0 0 15px rgba(110, 231, 245, 0.15),
+      0 0 30px rgba(110, 231, 245, 0.1);
+  }
+
+  /* Ambient Animations */
+  .ambient-pulse {
+    animation: ambient-pulse 6s ease-in-out infinite;
+  }
+
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shimmer::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(255, 255, 255, 0.03) 50%,
+      transparent 100%
+    );
+    animation: shimmer 5s infinite;
+    pointer-events: none;
+  }
+
+  /* Interactive Overlays */
+  .overlay-fade-in {
+    animation: overlay-fade-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .overlay-fade-out {
+    animation: overlay-fade-out 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-slide-in-right {
+    animation: slide-in-right 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-slide-out-right {
+    animation: slide-out-right 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Vision UI Gradients */
+  .gradient-vision-primary {
+    background: linear-gradient(135deg, #0b3d84 0%, #1e5a9e 50%, #6EE7F5 100%);
+  }
+
+  .gradient-vision-surface {
+    background: linear-gradient(135deg, 
+      rgba(18, 22, 26, 0.95) 0%, 
+      rgba(18, 22, 26, 0.85) 100%);
+  }
+
+  .gradient-vision-light {
+    background: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.95) 0%, 
+      rgba(249, 250, 251, 0.9) 100%);
+  }
+
+  /* Keyframe Animations for Graphlynk */
+  @keyframes floating {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes ambient-pulse {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.95;
+      transform: scale(1.005);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+    100% {
+      transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
+  }
+
+  @keyframes overlay-fade-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes overlay-fade-out {
+    from {
+      opacity: 1;
+      transform: scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+  }
+
+  @keyframes slide-in-right {
+    from {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-out-right {
+    from {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+
+  /* Scroll Reveal Animations - Subtle, purposeful motion */
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 300ms ease-out, transform 300ms ease-out;
+  }
+
+  .scroll-reveal-left {
+    opacity: 0;
+    transform: translateX(-16px);
+    transition: opacity 300ms ease-out, transform 300ms ease-out;
+  }
+
+  .scroll-reveal-right {
+    opacity: 0;
+    transform: translateX(16px);
+    transition: opacity 300ms ease-out, transform 300ms ease-out;
+  }
+
+  .scroll-reveal.scroll-revealed,
+  .scroll-reveal-left.scroll-revealed,
+  .scroll-reveal-right.scroll-revealed {
+    opacity: 1;
+    transform: translate(0);
+  }
+
+  /* Stagger delays: 50ms between items */
+  .scroll-reveal-delay-1 { transition-delay: 50ms; }
+  .scroll-reveal-delay-2 { transition-delay: 100ms; }
+  .scroll-reveal-delay-3 { transition-delay: 150ms; }
+  .scroll-reveal-delay-4 { transition-delay: 200ms; }
+  .scroll-reveal-delay-5 { transition-delay: 250ms; }
+  .scroll-reveal-delay-6 { transition-delay: 300ms; }
+
+  /* Accessibility: Respect reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-reveal,
+    .scroll-reveal-left,
+    .scroll-reveal-right {
+      opacity: 0;
+      transform: none;
+      transition: opacity 50ms ease-out;
+    }
+
+    .scroll-reveal.scroll-revealed,
+    .scroll-reveal-left.scroll-revealed,
+    .scroll-reveal-right.scroll-revealed {
+      opacity: 1;
+    }
+
+    .scroll-reveal-delay-1,
+    .scroll-reveal-delay-2,
+    .scroll-reveal-delay-3,
+    .scroll-reveal-delay-4,
+    .scroll-reveal-delay-5,
+    .scroll-reveal-delay-6 {
+      transition-delay: 0ms;
+    }
+
+    /* Disable all decorative hero animations */
+    .animate-hero-pan,
+    .animate-gradient,
+    .animate-glass-float,
+    .animate-dashboard-bg,
+    .animate-marquee {
+      animation: none !important;
+    }
+
+    /* Disable particle/glow animations */
+    [style*="animation: wire-light"],
+    [style*="animation: node-glow"] {
+      animation: none !important;
+      opacity: 0.3 !important;
+    }
+  }
+
+  /* Clear focus states - visible without animation */
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+
+  button:focus-visible,
+  a:focus-visible,
+  [role="button"]:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px hsl(var(--ring) / 0.2);
+  }
+
+  /* Ensure focus is visible on dark backgrounds */
+  .bg-slate-900 :focus-visible,
+  [class*="bg-primary"] :focus-visible {
+    outline-color: hsl(var(--primary-foreground));
+    box-shadow: 0 0 0 4px hsl(var(--primary-foreground) / 0.3);
+  }
+
+  /* Flip card animations - reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    [class*="perspective"] [class*="transform-style"] {
+      transition: none !important;
+    }
+    
+    .group:hover [class*="rotateY"] {
+      transform: none !important;
+    }
+    
+    .group:hover .scale-105 {
+      transform: none !important;
+    }
+  }
+}

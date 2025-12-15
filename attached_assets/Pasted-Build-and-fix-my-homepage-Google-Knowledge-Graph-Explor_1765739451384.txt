@@ -1,0 +1,189 @@
+Build and fix my homepage “Google Knowledge Graph Explorer” tool so it behaves like Kalicube’s Knowledge Graph Explorer, but better.
+
+Context
+
+This tool is embedded in my homepage hero search module (dropdown tool selector + large search bar + results panel).
+
+Right now, when I search an entity name, it only shows 1 result. Kalicube shows multiple relevant results.
+
+I need you to diagnose and fix the cause(s) and upgrade the feature.
+
+Primary goals
+
+Return multiple results (default 10) for normal name queries, like Kalicube.
+
+Support KG IDs (kg:/m/… or kg:/g/…) and show the best match first.
+
+Provide Kalicube-style fields: Entity Type, Graph ID (kgmid), Description, Entity Home, “See on Google” link, and a confidence score.
+
+Keep my API key private. Server route only.
+
+Add caching + rate limiting.
+
+What to change (must-do fixes)
+A) Backend: ensure the Google request actually asks for multiple results
+
+Always send limit to Google and clamp 1–20.
+
+Default limit = 10.
+
+Do NOT accidentally overwrite limit with 1.
+
+Make sure UI is not sending limit=1 or an empty value that becomes 1.
+
+Log outgoing parameters (server-side only) to confirm.
+
+B) Backend: types filter should not silently restrict results
+
+If types are selected, send repeated types params.
+
+If no types selected, do NOT send any types at all.
+
+Do not default types to a single type unless the user selected it.
+
+C) Backend: support two modes
+
+“ID mode” (KG ID query)
+
+If query starts with kg:/ or contains /m/ or /g/, treat it as an ID search.
+
+Still request limit 10, but rank the exact ID match first.
+
+“Text mode” (normal name search)
+
+Use the user query as-is.
+
+Request limit 10.
+
+Optionally add a lightweight ranking boost based on:
+
+exact name match
+
+description contains user query tokens
+
+higher resultScore
+
+D) Frontend: don’t truncate results
+
+Ensure the UI renders all returned items.
+
+Confirm you are not slicing to 1 item accidentally (e.g., items.slice(0,1)).
+
+Confirm keys are unique (use KG id if available) to prevent React from collapsing cards.
+
+Add a “Results: N” label and show the full grid.
+
+E) Caching + rate limiting
+
+Add in-memory cache keyed by query|lang|limit|types.
+
+Cache TTL = 300 seconds.
+
+Add per-IP rate limit: 30 requests / 5 minutes (prototype-safe).
+
+Return 429 with a friendly message when exceeded.
+
+Outputs
+
+Implement or update:
+
+Server route: /api/kgsearch
+
+Frontend tool component: <KnowledgeGraphTool />
+
+Wrapper tool selector component: <HeroSearchTools /> (only if needed)
+
+Provide complete code edits with file paths.
+
+Backend details (required)
+
+Call:
+https://kgsearch.googleapis.com/v1/entities:search
+
+Query params:
+
+query (required)
+
+key from env GOOGLE_KG_API_KEY
+
+languages (default “en”)
+
+limit (default 10)
+
+indent=true
+
+repeated types only if selected
+
+Normalize response items to:
+
+id: result["@id"] (e.g., kg:/m/…)
+
+kgmid: extracted “/m/…” or “/g/…”
+
+name: result.name
+
+types: result["@type"] array
+
+score: item.resultScore
+
+description: result.description
+
+entityHome: result.url
+
+detailed: result.detailedDescription (articleBody, url, license)
+
+image: result.image.contentUrl
+
+sameAs: result.sameAs (array)
+
+seeOnGoogleUrl: https://www.google.com/search?kgmid=<kgmid>
+
+Deduplicate by id+name.
+
+Frontend details (required)
+
+Display list/table/cards with:
+
+Entity name + image
+
+Entity Type
+
+Graph ID (kgmid + copy)
+
+Description
+
+Entity Home link
+
+See on Google link
+
+Confidence score (resultScore)
+
+Add a toggle “Advanced filters” for types/lang/limit.
+
+Default limit UI should be 10, not 1.
+
+Debug requirements
+
+Add temporary server logging (behind a DEBUG_KG=true env flag):
+
+log received query params
+
+log outgoing Google params
+
+log number of items returned
+
+Add temporary UI debug (dev-only):
+
+show raw count returned
+
+show current limit/types/lang
+
+Quality requirements
+
+Handle missing fields without breaking layout.
+
+Show meaningful empty state: “No entities found. Try a broader query.”
+
+Show error state if API key missing or Google errors.
+
+Keep UI fast and responsive.

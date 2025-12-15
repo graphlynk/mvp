@@ -1,0 +1,199 @@
+Build a drop-in Google Knowledge Graph Explorer module that plugs into my existing homepage “Search tools” feature. This is NOT a standalone webapp. It must behave like a tool option inside a single search component on the front page.
+
+Context:
+
+My homepage already has a hero section with a dropdown selector (example option: “Google Knowledge Graph API Explorer”) and a large search bar beneath it.
+
+When users choose this option and type a query, it should call a backend route and show Knowledge Graph results in a panel below the search bar (same page).
+
+Match a clean, modern, dark/blue glassmorphism UI similar to the screenshot.
+
+Non-negotiables:
+
+Never expose the Google KG API key in client code. All calls must go through a server route.
+
+Add server-side caching (5 minutes) and basic rate limiting per IP.
+
+No paid third-party services.
+
+The module must be reusable and embeddable into my existing site code.
+
+Tech choice:
+
+Use Next.js + TypeScript if possible.
+
+If Next.js isn’t stable in Replit, use Express + Vite + React.
+
+Either way, deliver the module as:
+
+A reusable React component <KnowledgeGraphTool />
+
+A shared “tool selector” wrapper <HeroSearchTools /> that can host multiple tools via dropdown
+
+A server route /api/kgsearch (or /api/tools/kgsearch) used by the module
+
+UI behavior:
+
+Dropdown tool selector
+
+Options array includes: “Google Knowledge Graph API Explorer” (this tool)
+
+The wrapper accepts tools[] so I can add more tools later
+
+When the user switches tools, preserve query text but clear results
+
+Search bar
+
+Large input + search icon
+
+Enter triggers search
+
+Show a small “Live” pill on the right like the screenshot
+
+Show loading spinner state inside the bar or next to it
+
+Filters (collapsed by default)
+
+Language (default “en”)
+
+Limit (1–20, default 10)
+
+Type chips: Person, Organization, MusicGroup, CreativeWork, Book, Movie, Place
+
+“Advanced” toggle to show/hide filters
+
+Results panel (below search bar)
+
+Show cards in a responsive grid
+
+Each card includes:
+
+name
+
+image (if present)
+
+types
+
+resultScore
+
+short description
+
+official URL (if present)
+
+detailedDescription URL + license/source (if present)
+
+sameAs links (display as hostname chips)
+
+Per-card actions:
+
+Copy KG @id
+
+Copy raw JSON
+
+Copy generated JSON-LD
+
+Global actions (top of results panel):
+
+Download JSON (all results)
+
+Export CSV (all results)
+
+JSON-LD generation:
+
+Generate schema.org JSON-LD for each result:
+
+@type = Person if includes Person, else Organization if includes Organization, else Thing
+
+include: @context, @type, @id, name, description, url, sameAs, image, mainEntityOfPage (detailedDescription.url)
+
+Remove undefined fields
+
+Provide a “Copy JSON-LD” button
+
+Backend route:
+
+GET /api/kgsearch
+
+Query params:
+
+query (string, required)
+
+lang (string, default “en”)
+
+limit (int 1–20, default 10)
+
+types (csv string, optional)
+
+Calls Google endpoint:
+
+https://kgsearch.googleapis.com/v1/entities:search
+
+includes key, query, languages, limit, indent=true
+
+if types provided, split csv and append multiple types parameters
+
+Normalize response into:
+
+id, name, types[], score, description, detailed{body,url,license,source}, image, url, sameAs[]
+
+Deduplicate identical id+name pairs
+
+Add server cache (memory cache is OK for prototype)
+
+Add rate limiting per IP (memory sliding window is OK for prototype)
+
+Return friendly errors without leaking sensitive info
+
+Environment:
+
+Use Replit Secrets:
+
+GOOGLE_KG_API_KEY
+
+If missing, UI shows: “Tool not configured: missing API key.”
+
+Deliverables:
+
+Provide a runnable Replit project
+
+Provide a clear file tree
+
+Provide full code for each file
+
+Provide exact run instructions
+
+Include a README with:
+
+How to enable Google Knowledge Graph Search API
+
+How to set the secret
+
+How to embed the module into an existing homepage
+
+Integration requirement:
+
+The final output must show an example homepage hero that looks like my screenshot:
+
+headline text on top (placeholder)
+
+tool dropdown
+
+large search bar
+
+results panel expands below
+
+But the key output is the reusable component so I can paste into my real site.
+
+Implementation order:
+
+Implement backend route first
+
+Implement <KnowledgeGraphTool /> component
+
+Implement <HeroSearchTools /> wrapper (dropdown + tool rendering)
+
+Implement UI styling to match the screenshot
+
+Add caching + rate limiting
+
+Add README

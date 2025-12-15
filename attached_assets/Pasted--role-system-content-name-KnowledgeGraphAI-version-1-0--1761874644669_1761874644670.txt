@@ -1,0 +1,145 @@
+{
+  "role": "system",
+  "content": {
+    "name": "KnowledgeGraphAI",
+    "version": "1.0",
+    "description": "AI-powered Knowledge Graph and entity authority platform integrating Wikipedia, Wikidata, Crunchbase, MusicBrainz, Linktree, and IMDb functionality with trust, schema automation, and Google legitimacy.",
+    "core_capabilities": {
+      "public_entity_profiles": {
+        "description": "Every user or business gets a public entity page (e.g., /entity/julie-schatz) with structured JSON-LD and cross-linked social/official sources.",
+        "features": [
+          "Crawlable canonical URLs",
+          "Automatic schema.org markup generation",
+          "Relationship graphing between entities (memberOf, owns, performsAt)"
+        ]
+      },
+      "short_link_profiles": {
+        "description": "Link-in-bio system (e.g., /julie) that provides backlinks from socials and links to the canonical entity profile.",
+        "features": [
+          "Canonical tag linking to entity profile",
+          "Analytics dashboard for traffic & engagement",
+          "Cross-platform backlink builder"
+        ]
+      },
+      "knowledge_graph_backend": {
+        "description": "Central graph database storing nodes, relationships, and structured attributes for all entities.",
+        "recommended_tech": ["Neo4j", "PostgreSQL JSONB", "RDFLib"],
+        "features": [
+          "Unique identifiers for every entity",
+          "Schema version control",
+          "Inter-entity relationship indexing"
+        ]
+      },
+      "schema_export_ai_builder": {
+        "description": "AI engine that creates schema.org JSON-LD markup based on user-provided information.",
+        "features": [
+          "Entity-type detection (artist, business, professional)",
+          "Copy/export markup for website embedding",
+          "Real-time schema updates from verified data"
+        ]
+      }
+    },
+    "trust_and_security": {
+      "purpose": "To maintain data legitimacy and ensure Google recognizes the platform as a verified and authoritative Knowledge Graph source.",
+      "layers": {
+        "identity_verification": {
+          "methods": [
+            "OAuth (Google, LinkedIn, Spotify, YouTube, Instagram)",
+            "Domain ownership via DNS TXT or HTML tag",
+            "Business verification via registry (EIN, NMLS, SEC)",
+            "Creative work validation via ISRC, IMDb, or RSS"
+          ],
+          "proof_schema": {
+            "@context": "https://schema.org",
+            "proofOfEntity": {
+              "method": "DomainVerification",
+              "verifiedOn": "ISO-8601 date",
+              "issuer": "YourPlatform.com"
+            }
+          }
+        },
+        "duplicate_detection": {
+          "engine": "AI entity reconciliation module",
+          "techniques": [
+            "String similarity (Levenshtein / cosine distance)",
+            "Social/domain overlap detection",
+            "Cross-check with Google KG API / Wikidata",
+            "Confidence scoring > 80% triggers merge review"
+          ]
+        },
+        "notability_scoring": {
+          "inputs": [
+            "Number of verified links",
+            "Mentions on authoritative sites",
+            "Schema compliance",
+            "Social/web engagement metrics"
+          ],
+          "outcome": "Entities below score threshold are queued for review or kept private."
+        },
+        "moderation_and_audit": {
+          "description": "Version control + AI moderation to prevent false data and maintain trust.",
+          "features": [
+            "Versioned entity edit logs",
+            "AI anomaly detection for false claims",
+            "Human/community moderation queue",
+            "Blockchain or hash logging for transparency"
+          ]
+        },
+        "schema_validation": {
+          "pipeline": [
+            "Validate JSON-LD structure",
+            "Check against schema.org definitions",
+            "Cross-reference Google Knowledge Graph API",
+            "Reject or flag inconsistent entities"
+          ]
+        }
+      }
+    },
+    "integrity_safeguards": {
+      "rules": [
+        "All entities must meet minimum notability before publishing",
+        "Duplicates auto-merged or quarantined",
+        "Permanent canonical URLs enforced (no redirects)",
+        "Public edit history for transparency",
+        "Consistent sameAs link verification across sites"
+      ]
+    },
+    "data_ecosystem": {
+      "trust_triangle": {
+        "structure": "User Website ↔ Your Platform (Entity Profile) ↔ Verified External Profiles",
+        "purpose": "Cross-linking builds multi-domain verification recognized by Google.",
+        "fields": [
+          "from_user_website_to_platform",
+          "from_platform_to_user_website_via_sameAs",
+          "from_socials_to_platform_via_link_in_bio"
+        ]
+      }
+    },
+    "ai_governance": {
+      "moderation_ai": {
+        "description": "Detects spam, fakes, and manipulation attempts.",
+        "capabilities": [
+          "Identify impersonation or duplicate entities",
+          "Spot fake organizations or bot submissions",
+          "Block spammy link clusters",
+          "Blacklist repeat violators automatically"
+        ]
+      },
+      "legitimacy_automation": {
+        "description": "AI automatically verifies new entities that meet the notability threshold.",
+        "actions": [
+          "Auto-verify high-confidence matches",
+          "Queue low-confidence for human review",
+          "Re-score entities over time as mentions and backlinks grow"
+        ]
+      }
+    },
+    "output_goals": [
+      "Google-level structured data legitimacy",
+      "Public transparency and schema compliance",
+      "AI-assisted schema generation and validation",
+      "Fraud prevention and impersonation protection",
+      "Built-in Linktree-style social profile hub for authority building"
+    ]
+  }
+}

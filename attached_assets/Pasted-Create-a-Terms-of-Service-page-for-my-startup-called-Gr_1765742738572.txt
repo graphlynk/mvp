@@ -1,0 +1,152 @@
+Create a Terms of Service page for my startup called Graphlynk and wire it as a footer tab on the main website.
+
+Context
+
+Graphlynk is a professional platform that helps individuals, creators, and businesses establish authoritative entities and obtain a guaranteed Knowledge Panel through structured data, entity verification, and proprietary systems.
+
+This page must:
+
+Be suitable for a live production website
+
+Sound premium, authoritative, and trustworthy
+
+Protect the company legally while supporting a strong sales promise
+
+Avoid naming or referencing any other companies, platforms, or competitors
+
+Page requirements
+1. Page routing
+
+URL: /terms
+
+Footer link label: Terms of Service
+
+Page title (H1): Terms of Service
+
+Meta title: Terms of Service | Graphlynk
+
+Meta description: Terms governing the use of Graphlynk’s services and platform.
+
+2. Content structure
+
+Create the following sections, in this order:
+
+Introduction
+
+Define Graphlynk (“we,” “our,” “us”)
+
+State that use of the website and services constitutes acceptance of the Terms
+
+Services Overview
+
+Describe Graphlynk as a platform for:
+
+Entity creation and optimization
+
+Knowledge Graph structuring
+
+Authority and visibility systems
+
+Professional entity validation
+
+Emphasize that services are outcome-driven and professionally managed
+
+Knowledge Panel Guarantee
+
+Clearly state that Graphlynk guarantees the establishment of a Knowledge Panel
+
+Define eligibility requirements:
+
+Accurate and truthful information
+
+Completion of onboarding and verification steps
+
+Compliance with platform standards
+
+State that if the Knowledge Panel is not achieved within the agreed period, Graphlynk will continue work at no additional cost or resolve per the service agreement
+
+Client Responsibilities
+
+Accuracy of submitted information
+
+Authorization to represent the entity
+
+Participation in verification processes
+
+Prohibition on false, misleading, or impersonated data
+
+Acceptable Use
+
+Prohibit abuse, manipulation, misrepresentation, or platform interference
+
+Reserve the right to suspend or terminate access for violations
+
+Intellectual Property
+
+Graphlynk owns platform software, systems, branding, and designs
+
+Users retain ownership of submitted content
+
+Users grant Graphlynk a limited license to use submitted content to provide services
+
+Disclaimers
+
+Clarify that while the Knowledge Panel outcome is guaranteed under qualifying conditions:
+
+Rankings, traffic, or revenue are not guaranteed
+
+Ongoing visibility depends on continued accuracy and compliance
+
+Limitation of Liability
+
+Limit liability to the maximum extent permitted by law
+
+Cap liability at the amount paid for services
+
+Privacy
+
+Reference the Privacy Policy as governing data use
+
+Modifications
+
+State that Graphlynk may update Terms
+
+Continued use constitutes acceptance of changes
+
+Termination
+
+Allow suspension or termination for violations or risk to the platform
+
+Governing Law
+
+Governed by the laws of the United States
+
+Contact Information
+
+Email contact for legal or terms-related inquiries
+
+Style guidelines
+
+Professional, confident, and concise
+
+No emojis
+
+No casual language
+
+No mention of competitors, search engines, or third-party platforms
+
+Avoid overly defensive or weak legal phrasing
+
+Balance legal protection with strong positioning
+
+Output format
+
+Render the page in clean HTML or JSX (depending on framework)
+
+Include semantic tags (<main>, <section>, <h1>, <h2>, <p>)
+
+Ready to deploy without further editing
+
+Final instruction
+
+Generate the complete Terms of Service page and ensure it is suitable for immediate use on a production startup website.
